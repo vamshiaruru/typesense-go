@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package test
@@ -8,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/typesense/typesense-go/typesense/api"
-	"github.com/typesense/typesense-go/typesense/api/pointer"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api/pointer"
 )
 
 func TestDocumentsImport(t *testing.T) {

@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/typesense/typesense-go/typesense/api"
-	"github.com/typesense/typesense-go/typesense/api/pointer"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api/pointer"
 )
 
 func TestSearchSynonymUpsertNewSynonym(t *testing.T) {

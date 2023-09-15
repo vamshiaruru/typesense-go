@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/typesense/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
 )
 
 type KeysInterface interface {

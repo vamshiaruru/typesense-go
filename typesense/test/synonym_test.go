@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/typesense/typesense-go/typesense/api/pointer"
+	"github.com/vamshiaruru/typesense-go/typesense/api/pointer"
 )
 
 func TestSearchSynonymRetrieve(t *testing.T) {

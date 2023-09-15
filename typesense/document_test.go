@@ -7,8 +7,8 @@ import (
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
-	"github.com/typesense/typesense-go/typesense/api"
-	"github.com/typesense/typesense-go/typesense/mocks"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/mocks"
 )
 
 func TestDocumentRetrieve(t *testing.T) {

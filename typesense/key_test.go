@@ -2,14 +2,15 @@ package typesense
 
 import (
 	"errors"
-	"github.com/typesense/typesense-go/typesense/api/pointer"
 	"net/http"
 	"testing"
 
+	"github.com/vamshiaruru/typesense-go/typesense/api/pointer"
+
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
-	"github.com/typesense/typesense-go/typesense/api"
-	"github.com/typesense/typesense-go/typesense/mocks"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/mocks"
 )
 
 func TestKeyRetrieve(t *testing.T) {

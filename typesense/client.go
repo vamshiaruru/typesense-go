@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/typesense/typesense-go/typesense/api"
-	"github.com/typesense/typesense-go/typesense/api/circuit"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api/circuit"
 )
 
 type APIClientInterface interface {

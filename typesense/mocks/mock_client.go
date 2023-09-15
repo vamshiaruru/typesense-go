@@ -11,7 +11,7 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
-	api "github.com/typesense/typesense-go/typesense/api"
+	api "github.com/vamshiaruru/typesense-go/typesense/api"
 )
 
 // MockAPIClientInterface is a mock of APIClientInterface interface.

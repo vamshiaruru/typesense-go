@@ -3,7 +3,7 @@ package typesense
 import (
 	"context"
 
-	"github.com/typesense/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
 )
 
 // AliasInterface is a type for Alias API operations
