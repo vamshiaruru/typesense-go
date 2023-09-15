@@ -575,7 +575,7 @@ type MultiSearchResultItem struct {
 	// SearchTimeMs The number of milliseconds the search took
 	SearchTimeMs *int `json:"search_time_ms,omitempty"`
 	Code 	   *int  `json:"code,omitempty"`
-	Message *int `json:"message,omitempty"`
+	Error *string `json:"error,omitempty"`
 }
 
 // SearchResult defines model for SearchResult.
