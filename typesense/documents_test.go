@@ -20,7 +20,7 @@ func createNewDocument(docIDs ...string) interface{} {
 	if len(docIDs) > 0 {
 		docID = docIDs[0]
 	}
-	document := struct {
+	doc := struct {
 		ID           string `json:"id"`
 		CompanyName  string `json:"companyName"`
 		NumEmployees int    `json:"numEmployees"`
@@ -31,16 +31,16 @@ func createNewDocument(docIDs ...string) interface{} {
 		NumEmployees: 5215,
 		Country:      "USA",
 	}
-	return &document
+	return &doc
 }
 
 func createNewDocumentResponse() map[string]interface{} {
-	document := map[string]interface{}{}
-	document["id"] = "123"
-	document["companyName"] = "Stark Industries"
-	document["numEmployees"] = 5215
-	document["country"] = "USA"
-	return document
+	doc := map[string]interface{}{}
+	doc["id"] = "123"
+	doc["companyName"] = "Stark Industries"
+	doc["numEmployees"] = 5215
+	doc["country"] = "USA"
+	return doc
 }
 
 func TestDocumentCreate(t *testing.T) {
@@ -62,8 +62,8 @@ func TestDocumentCreate(t *testing.T) {
 		Times(1)
 
 	client := NewClient(WithAPIClient(mockAPIClient))
-	document := createNewDocument()
-	result, err := client.Collection("companies").Documents().Create(document)
+	doc := createNewDocument()
+	result, err := client.Collection("companies").Documents().Create(doc)
 
 	assert.Nil(t, err)
 	assert.Equal(t, expectedResult, result)
