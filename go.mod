@@ -1,10 +1,9 @@
-module github.com/typesense/typesense-go
+module github.com/vamshiaruru/typesense-go
 
 go 1.22
 
 require (
 	github.com/deepmap/oapi-codegen v1.12.3
-	github.com/golang/mock v1.6.0
 	github.com/sony/gobreaker v0.5.0
 	gopkg.in/yaml.v3 v3.0.1
 )

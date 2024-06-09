@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/typesense/typesense-go/typesense/api"
+	"github.com/vamshiaruru/typesense-go/typesense/api"
 )
 
 var upsertAction api.IndexDocumentParamsAction = "upsert"
