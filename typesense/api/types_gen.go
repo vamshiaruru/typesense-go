@@ -265,6 +265,8 @@ type MultiSearchCollectionParameters struct {
 	// You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and  finally `hidden_hits`.
 	PinnedHits *string `json:"pinned_hits,omitempty"`
 
+	FilterPinnedHits *bool `json:"filter_pinned_hits,omitempty"`
+
 	// PreSegmentedQuery You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying.
 	// Set this parameter to true to do the same
 	PreSegmentedQuery *bool `json:"pre_segmented_query,omitempty"`
@@ -396,6 +398,8 @@ type MultiSearchParameters struct {
 	// PinnedHits A list of records to unconditionally include in the search results at specific positions. An example use case would be to feature or promote certain items on the top of search results. A list of `record_id:hit_position`. Eg: to include a record with ID 123 at Position 1 and another record with ID 456 at Position 5, you'd specify `123:1,456:5`.
 	// You could also use the Overrides feature to override search results based on rules. Overrides are applied first, followed by `pinned_hits` and  finally `hidden_hits`.
 	PinnedHits *string `json:"pinned_hits,omitempty"`
+
+	FilterPinnedHits *bool `json:"filter_pinned_hits,omitempty"`
 
 	// PreSegmentedQuery You can index content from any logographic language into Typesense if you are able to segment / split the text into space-separated words yourself  before indexing and querying.
 	// Set this parameter to true to do the same
@@ -731,6 +735,7 @@ type SearchCollectionParams struct {
 	Page                     *int    `form:"page,omitempty" json:"page,omitempty"`
 	PerPage                  *int    `form:"per_page,omitempty" json:"per_page,omitempty"`
 	PinnedHits               *string `form:"pinned_hits,omitempty" json:"pinned_hits,omitempty"`
+	FilterPinnedHits		 *bool   `form:"filter_pinned_hits,omitempty" json:"filter_pinned_hits,omitempty"`
 	PreSegmentedQuery        *bool   `form:"pre_segmented_query,omitempty" json:"pre_segmented_query,omitempty"`
 	Prefix                   *string `form:"prefix,omitempty" json:"prefix,omitempty"`
 	Preset                   *string `form:"preset,omitempty" json:"preset,omitempty"`
@@ -784,6 +789,7 @@ type MultiSearchParams struct {
 	Page                     *int    `form:"page,omitempty" json:"page,omitempty"`
 	PerPage                  *int    `form:"per_page,omitempty" json:"per_page,omitempty"`
 	PinnedHits               *string `form:"pinned_hits,omitempty" json:"pinned_hits,omitempty"`
+	FilterPinnedHits		 *bool   `form:"filter_pinned_hits,omitempty" json:"filter_pinned_hits,omitempty"`
 	PreSegmentedQuery        *bool   `form:"pre_segmented_query,omitempty" json:"pre_segmented_query,omitempty"`
 	Prefix                   *string `form:"prefix,omitempty" json:"prefix,omitempty"`
 	Preset                   *string `form:"preset,omitempty" json:"preset,omitempty"`
