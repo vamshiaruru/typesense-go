@@ -1965,9 +1965,9 @@ func NewSearchCollectionRequest(server string, collectionName string, params *Se
 
 	}
 
-	if params.FilterPinnedHits != nil {
+	if params.FilterCuratedHits != nil {
 
-		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_pinned_hits", runtime.ParamLocationQuery, *params.FilterPinnedHits); err != nil {
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_curated_hits", runtime.ParamLocationQuery, *params.FilterCuratedHits); err != nil {
 			return nil, err
 		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 			return nil, err
@@ -3416,9 +3416,9 @@ func NewMultiSearchRequestWithBody(server string, params *MultiSearchParams, con
 
 	}
 
-	if params.FilterPinnedHits != nil {
+	if params.FilterCuratedHits != nil {
 
-		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_pinned_hits", runtime.ParamLocationQuery, *params.FilterPinnedHits); err != nil {
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_curated_hits", runtime.ParamLocationQuery, *params.FilterCuratedHits); err != nil {
 			return nil, err
 		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 			return nil, err
