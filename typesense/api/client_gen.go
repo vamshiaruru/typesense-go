@@ -1965,6 +1965,22 @@ func NewSearchCollectionRequest(server string, collectionName string, params *Se
 
 	}
 
+	if params.FilterPinnedHits != nil {
+
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_pinned_hits", runtime.ParamLocationQuery, *params.FilterPinnedHits); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+	}
+
 	if params.PreSegmentedQuery != nil {
 
 		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "pre_segmented_query", runtime.ParamLocationQuery, *params.PreSegmentedQuery); err != nil {
@@ -3398,6 +3414,21 @@ func NewMultiSearchRequestWithBody(server string, params *MultiSearchParams, con
 			}
 		}
 
+	}
+
+	if params.FilterPinnedHits != nil {
+
+		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filter_pinned_hits", runtime.ParamLocationQuery, *params.FilterPinnedHits); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
 	}
 
 	if params.PreSegmentedQuery != nil {
