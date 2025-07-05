@@ -298,6 +298,9 @@ type MultiSearchCollectionParameters struct {
 	// RemoteEmbeddingTimeoutMs Timeout (in milliseconds) for fetching remote embeddings.
 	RemoteEmbeddingTimeoutMs *int `json:"remote_embedding_timeout_ms,omitempty"`
 
+	// RerankHybridMatches Optional boolean parameter to control hybrid matching reranking
+	RerankHybridMatches *bool `json:"rerank_hybrid_matches,omitempty"`
+
 	// SearchCutoffMs Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter.
 	SearchCutoffMs *int `json:"search_cutoff_ms,omitempty"`
 
@@ -434,6 +437,9 @@ type MultiSearchParameters struct {
 
 	// RemoteEmbeddingTimeoutMs Timeout (in milliseconds) for fetching remote embeddings.
 	RemoteEmbeddingTimeoutMs *int `json:"remote_embedding_timeout_ms,omitempty"`
+
+	// RerankHybridMatches Optional boolean parameter to control hybrid matching reranking
+	RerankHybridMatches *bool `json:"rerank_hybrid_matches,omitempty"`
 
 	// SearchCutoffMs Typesense will attempt to return results early if the cutoff time has elapsed.  This is not a strict guarantee and facet computation is not bound by this parameter.
 	SearchCutoffMs *int `json:"search_cutoff_ms,omitempty"`
@@ -583,9 +589,9 @@ type MultiSearchResultItem struct {
 	SearchCutoff *bool `json:"search_cutoff,omitempty"`
 
 	// SearchTimeMs The number of milliseconds the search took
-	SearchTimeMs *int `json:"search_time_ms,omitempty"`
-	Code 	   *int  `json:"code,omitempty"`
-	Error *string `json:"error,omitempty"`
+	SearchTimeMs *int    `json:"search_time_ms,omitempty"`
+	Code         *int    `json:"code,omitempty"`
+	Error        *string `json:"error,omitempty"`
 }
 
 // SearchResult defines model for SearchResult.
@@ -719,7 +725,7 @@ type SearchCollectionParams struct {
 	ExcludeFields            *string `form:"exclude_fields,omitempty" json:"exclude_fields,omitempty"`
 	ExhaustiveSearch         *bool   `form:"exhaustive_search,omitempty" json:"exhaustive_search,omitempty"`
 	FacetBy                  *string `form:"facet_by,omitempty" json:"facet_by,omitempty"`
-	FacetStrategy 		     *string `form:"facet_strategy,omitempty" json:"facet_strategy,omitempty"`
+	FacetStrategy            *string `form:"facet_strategy,omitempty" json:"facet_strategy,omitempty"`
 	FacetQuery               *string `form:"facet_query,omitempty" json:"facet_query,omitempty"`
 	FilterBy                 *string `form:"filter_by,omitempty" json:"filter_by,omitempty"`
 	GroupBy                  *string `form:"group_by,omitempty" json:"group_by,omitempty"`
@@ -742,7 +748,7 @@ type SearchCollectionParams struct {
 	Page                     *int    `form:"page,omitempty" json:"page,omitempty"`
 	PerPage                  *int    `form:"per_page,omitempty" json:"per_page,omitempty"`
 	PinnedHits               *string `form:"pinned_hits,omitempty" json:"pinned_hits,omitempty"`
-	FilterCuratedHits		 *bool   `form:"filter_curated_hits,omitempty" json:"filter_curated_hits,omitempty"`
+	FilterCuratedHits        *bool   `form:"filter_curated_hits,omitempty" json:"filter_curated_hits,omitempty"`
 	PreSegmentedQuery        *bool   `form:"pre_segmented_query,omitempty" json:"pre_segmented_query,omitempty"`
 	Prefix                   *string `form:"prefix,omitempty" json:"prefix,omitempty"`
 	Preset                   *string `form:"preset,omitempty" json:"preset,omitempty"`
@@ -753,6 +759,7 @@ type SearchCollectionParams struct {
 	QueryByWeights           *string `form:"query_by_weights,omitempty" json:"query_by_weights,omitempty"`
 	RemoteEmbeddingNumTries  *int    `form:"remote_embedding_num_tries,omitempty" json:"remote_embedding_num_tries,omitempty"`
 	RemoteEmbeddingTimeoutMs *int    `form:"remote_embedding_timeout_ms,omitempty" json:"remote_embedding_timeout_ms,omitempty"`
+	RerankHybridMatches      *bool   `form:"rerank_hybrid_matches,omitempty" json:"rerank_hybrid_matches,omitempty"`
 	SearchCutoffMs           *int    `form:"search_cutoff_ms,omitempty" json:"search_cutoff_ms,omitempty"`
 	SnippetThreshold         *int    `form:"snippet_threshold,omitempty" json:"snippet_threshold,omitempty"`
 	SortBy                   *string `form:"sort_by,omitempty" json:"sort_by,omitempty"`
@@ -775,7 +782,7 @@ type MultiSearchParams struct {
 	ExhaustiveSearch         *bool   `form:"exhaustive_search,omitempty" json:"exhaustive_search,omitempty"`
 	FacetBy                  *string `form:"facet_by,omitempty" json:"facet_by,omitempty"`
 	FacetQuery               *string `form:"facet_query,omitempty" json:"facet_query,omitempty"`
-	FacetStrategy 		     *string `form:"facet_strategy,omitempty" json:"facet_strategy,omitempty"`
+	FacetStrategy            *string `form:"facet_strategy,omitempty" json:"facet_strategy,omitempty"`
 	FilterBy                 *string `form:"filter_by,omitempty" json:"filter_by,omitempty"`
 	GroupBy                  *string `form:"group_by,omitempty" json:"group_by,omitempty"`
 	GroupLimit               *int    `form:"group_limit,omitempty" json:"group_limit,omitempty"`
@@ -797,7 +804,7 @@ type MultiSearchParams struct {
 	Page                     *int    `form:"page,omitempty" json:"page,omitempty"`
 	PerPage                  *int    `form:"per_page,omitempty" json:"per_page,omitempty"`
 	PinnedHits               *string `form:"pinned_hits,omitempty" json:"pinned_hits,omitempty"`
-	FilterCuratedHits		 *bool   `form:"filter_curated_hits,omitempty" json:"filter_curated_hits,omitempty"`
+	FilterCuratedHits        *bool   `form:"filter_curated_hits,omitempty" json:"filter_curated_hits,omitempty"`
 	PreSegmentedQuery        *bool   `form:"pre_segmented_query,omitempty" json:"pre_segmented_query,omitempty"`
 	Prefix                   *string `form:"prefix,omitempty" json:"prefix,omitempty"`
 	Preset                   *string `form:"preset,omitempty" json:"preset,omitempty"`
@@ -808,6 +815,7 @@ type MultiSearchParams struct {
 	QueryByWeights           *string `form:"query_by_weights,omitempty" json:"query_by_weights,omitempty"`
 	RemoteEmbeddingNumTries  *int    `form:"remote_embedding_num_tries,omitempty" json:"remote_embedding_num_tries,omitempty"`
 	RemoteEmbeddingTimeoutMs *int    `form:"remote_embedding_timeout_ms,omitempty" json:"remote_embedding_timeout_ms,omitempty"`
+	RerankHybridMatches      *bool   `form:"rerank_hybrid_matches,omitempty" json:"rerank_hybrid_matches,omitempty"`
 	SearchCutoffMs           *int    `form:"search_cutoff_ms,omitempty" json:"search_cutoff_ms,omitempty"`
 	SnippetThreshold         *int    `form:"snippet_threshold,omitempty" json:"snippet_threshold,omitempty"`
 	SortBy                   *string `form:"sort_by,omitempty" json:"sort_by,omitempty"`
